@@ -1,0 +1,599 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KGJ.Application</name>
+    </assembly>
+    <members>
+        <member name="F:KGJ.AppConsts.DefaultPassPhrase">
+            <summary>
+            Default pass phrase for SimpleStringCipher decrypt/encrypt operations
+            </summary>
+        </member>
+        <member name="F:KGJ.AppConsts.DefaultPageSize">
+            <summary>
+            Default page size for paged requests.
+            </summary>
+        </member>
+        <member name="F:KGJ.AppConsts.MaxPageSize">
+            <summary>
+            Maximum allowed page size for paged requests.
+            </summary>
+        </member>
+        <member name="M:KGJ.BasicManagement.SystemCodeAppService.CreateSystemCodeGroupAsync(KGJ.BasicManagement.Dto.CreateSystemCodeGroupInput)">
+            <summary>
+            新增数据字典（含子表）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.BasicManagement.SystemCodeAppService.UpdateSystemCodeGroupAsync(KGJ.BasicManagement.Dto.UpdateSystemCodeGroupInput)">
+            <summary>
+            更新数据字典(含勾选是否有效)
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.BasicManagement.SystemCodeAppService.DeleteSystemCodeGroupAsync(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            列表页删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.BasicManagement.SystemCodeAppService.GetSystemCodeGroupAsync(KGJ.BasicManagement.Dto.GetSystemCodeGroupInput)">
+            <summary>
+            列表页查询（字典组）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.BasicManagement.SystemCodeAppService.GetSystemCodeAsync(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            获取字典明细
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KGJ.KGJAppServiceBase">
+            <summary>
+            Derive your application services from this class.
+            </summary>
+        </member>
+        <member name="T:KGJ.Net.MimeTypes.MimeTypeNames">
+            <summary>
+            Common mime types. 
+            </summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXJavascript">
+            <summary>Used to denote the encoding necessary for files containing JavaScript source code. The alternative MIME type for this file type is text/javascript.</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioL24">
+            <summary>24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXShockwaveFlash">
+            <summary>Adobe Flash files for example with the extension .swf</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationOctetStream">
+            <summary>Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application. Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files. In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather, should omit the type in order to allow the recipient to guess the type.[6]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationAtomXml">
+            <summary>Atom feeds</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextCss">
+            <summary>Cascading Style Sheets; Defined in RFC 2318</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextCmd">
+            <summary>commands; subtype resident in Gecko browsers like Firefox 3.5</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextCsv">
+            <summary>Comma-separated values; Defined in RFC 4180</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXDeb">
+            <summary>deb (file format), a software package format used by the Debian project</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartEncrypted">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartSigned">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MessageHttp">
+            <summary>Defined in RFC 2616</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelExample">
+            <summary>Defined in RFC 4735</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXDvi">
+            <summary>device-independent document in DVI format</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXmlDtd">
+            <summary>DTD files; Defined by RFC 3023</summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationJavascript" -->
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationEcmascript">
+            <summary>ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationEdifact">
+            <summary>EDI EDIFACT data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationEdiX12">
+            <summary>EDI X12 data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MessagePartial">
+            <summary>Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MessageRfc822">
+            <summary>Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoXFlv">
+            <summary>Flash video (FLV files)</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImageGif">
+            <summary>GIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextXGwtRpc">
+            <summary>GoogleWebToolkit data</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXGzip">
+            <summary>Gzip</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextHtml">
+            <summary>HTML; Defined in RFC 2854</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImageVndMicrosoftIcon">
+            <summary>ICO image; Registered[9]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelIges">
+            <summary>IGS files, IGES files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MessageImdnXml">
+            <summary>IMDN Instant Message Disposition Notification; Defined in RFC 5438</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationJson">
+            <summary>JavaScript Object Notation JSON; Defined in RFC 4627</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationJsonPatch">
+            <summary>JavaScript Object Notation (JSON) Patch; Defined in RFC 6902</summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:KGJ.Net.MimeTypes.MimeTypeNames.TextJavascript" -->
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImagePjpeg">
+            <summary>JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v=vs.85) - Progressive JPEG, initiated before global browser support for progressive JPEGs (Microsoft and Firefox).</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImageJpeg">
+            <summary>JPEG JFIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextXJqueryTmpl">
+            <summary>jQuery template data</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndGoogleEarthKmlXml">
+            <summary>KML files (e.g. for Google Earth)</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXLatex">
+            <summary>LaTeX files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoXMatroska">
+            <summary>Matroska open media format</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet">
+            <summary>Microsoft Excel 2007 files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndMsExcel">
+            <summary>Microsoft Excel files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation">
+            <summary>Microsoft Powerpoint 2007 files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndMsPowerpoint">
+            <summary>Microsoft Powerpoint files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument">
+            <summary>Microsoft Word 2007 files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationMsword">
+            <summary>Microsoft Word files[15]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartAlternative">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartMixed">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartRelated">
+            <summary>MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.MultipartFormData">
+            <summary>MIME Webform; Defined in RFC 2388</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndMozillaXulXml">
+            <summary>Mozilla XUL files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioMpeg">
+            <summary>MP3 or other MPEG audio; Defined in RFC 3003</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioMp4">
+            <summary>MP4 audio</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoMp4">
+            <summary>MP4 video; Defined in RFC 4337</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoMpeg">
+            <summary>MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelMesh">
+            <summary>MSH files, MESH files; Defined in RFC 2077, SILO files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioBasic">
+            <summary>mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoOgg">
+            <summary>Ogg Theora or other video (with audio); Defined in RFC 5334</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioOgg">
+            <summary>Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationOgg">
+            <summary>Ogg, a multimedia bitstream container format; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXopXml">
+            <summary>OP</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentGraphics">
+            <summary>OpenDocument Graphics; Registered[14]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentPresentation">
+            <summary>OpenDocument Presentation; Registered[13]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentSpreadsheet">
+            <summary>OpenDocument Spreadsheet; Registered[12]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentText">
+            <summary>OpenDocument Text; Registered[11]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs12">
+            <summary>p12 files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certificates">
+            <summary>p7b and spc files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Mime">
+            <summary>p7c files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certreqresp">
+            <summary>p7r files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Signature">
+            <summary>p7s files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationPdf">
+            <summary>Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImagePng">
+            <summary>Portable Network Graphics; Registered,[8] Defined in RFC 2083</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationPostscript">
+            <summary>PostScript; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoQuicktime">
+            <summary>QuickTime video; Registered[10]</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXRarCompressed">
+            <summary>RAR archive files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioVndRnRealaudio">
+            <summary>RealAudio; Documented in RealPlayer Customer Support Answer 2559</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationRdfXml">
+            <summary>Resource Description Framework; Defined by RFC 3870</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationRssXml">
+            <summary>RSS feeds</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationSoapXml">
+            <summary>SOAP; Defined by RFC 3902</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXStuffit">
+            <summary>StuffIt archive files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImageSvgXml">
+            <summary>SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ImageTiff">
+            <summary>Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXTar">
+            <summary>Tarball files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextPlain">
+            <summary>Textual data; Defined in RFC 2046 and RFC 3676</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXFontTtf">
+            <summary>TrueType Font No registered MIME type, but this is the most commonly used</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.TextVcard">
+            <summary>vCard (contact information); Defined in RFC 6350</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioVorbis">
+            <summary>Vorbis encoded audio; Defined in RFC 5215</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioVndWave">
+            <summary>WAV audio; Defined in RFC 2361</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationFontWoff">
+            <summary>Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoWebm">
+            <summary>WebM Matroska-based open media format</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioWebm">
+            <summary>WebM open media format</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioXMsWax">
+            <summary>Windows Media Audio Redirector; Documented in Microsoft help page</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.AudioXMsWma">
+            <summary>Windows Media Audio; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.VideoXMsWmv">
+            <summary>Windows Media Video; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelVrml">
+            <summary>WRL files, VRML files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelX3DXml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3D XML files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelX3DBinary">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DB binary files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ModelX3DVrml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DV VRML files</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationXhtmlXml">
+            <summary>XHTML; Defined by RFC 3236</summary>
+        </member>
+        <member name="F:KGJ.Net.MimeTypes.MimeTypeNames.ApplicationZip">
+            <summary>ZIP archive files; Registered[7]</summary>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.GetOrganizationUnitsAsync">
+            <summary>
+            获取组织结构树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.GetOrganizationUnitUsersAsync(KGJ.OrganizationUnits.Dto.GetOrganizationUnitUsersInput)">
+            <summary>
+            单击某组织获取组织成员（传入组织Id）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.CreateOrganizationUnitAsync(KGJ.OrganizationUnits.Dto.CreateOrganizationUnitInput)">
+            <summary>
+            添加根组织，添加子组织
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.UpdateOrganizationUnitAsync(KGJ.OrganizationUnits.Dto.UpdateOrganizationUnitInput)">
+            <summary>
+            修改组织名
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.MoveOrganizationUnitAsync(KGJ.OrganizationUnits.Dto.MoveOrganizationUnitInput)">
+            <summary>
+            移动某组织到新的父组织结点
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.DeleteOrganizationUnitAsync(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            删除某组织
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.RemoveUserFromOrganizationUnitAsync(KGJ.OrganizationUnits.Dto.UserToOrganizationUnitInput)">
+            <summary>
+            从某组织删除一个成员
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.AddUsersToOrganizationUnitAsync(KGJ.OrganizationUnits.Dto.UsersToOrganizationUnitInput)">
+            <summary>
+            保存成员到某组织（一个或多个）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.FindUsersAsync(KGJ.OrganizationUnits.Dto.FindOrganizationUnitUsersInput)">
+            <summary>
+            点击添加成员-->弹出用户列表(用)
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.OrganizationUnits.OrganizationUnitAppService.CreateOrganizationUnitDtoAsync(Abp.Organizations.OrganizationUnit)">
+            <summary>
+            转换组织对象
+            </summary>
+            <param name="organizationUnit"></param>
+            <returns></returns>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProAlias">
+            <summary>
+            产品别名
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProClassification">
+            <summary>
+            产品分类
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProModel">
+            <summary>
+            型号
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProBrand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProPackage">
+            <summary>
+            包装
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProUnit">
+            <summary>
+            基本单位
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProDesc">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Size">
+            <summary>
+            尺寸
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Weight">
+            <summary>
+            重量
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Acreage">
+            <summary>
+            面积(m²)
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.MinNum">
+            <summary>
+            最小领用量
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ChargeStandard">
+            <summary>
+            收费标准
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ChargeAmount">
+            <summary>
+            收费金额
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.IsMultiUnit">
+            <summary>
+            是否多单位
+            </summary>
+        </member>
+        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.IsGenerateQR">
+            <summary>
+            产生二维码
+            </summary>
+        </member>
+        <member name="M:KGJ.Users.UserAppService.GetUserOrganizationUnitsAsync(System.Int64)">
+            <summary>
+            获用户组织结构树
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.GetWareHouseInfoAsync(KGJ.WareHouse.Dto.WareHouseInfoInput)">
+            <summary>
+            获取仓库信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.GetWareHouseInfoDts(System.String)">
+            <summary>
+            获取仓库详细信息
+            </summary>
+            <param name="wareHouseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.CreateOrUpdate(KGJ.WareHouse.Dto.WareHouseInfoCreateDto)">
+            <summary>
+            新增/修改
+            </summary>
+            <param name="createDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.UpdateWareHouseInfoAsync(KGJ.WareHouse.UpdateWareHouseInfoInput)">
+            <summary>
+            列表页面删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.UpdateWareHouseInfoDtsAsync(KGJ.WareHouse.UpdateWareHouseInfoInput)">
+            <summary>
+            详情页面删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.GetWareHouseInfoDtsByNo(System.String)">
+            <summary>
+            下拉框选择库区
+            </summary>
+            <param name="wareHouseNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseInfoAppService.GetWareHouseInfoName">
+            <summary>
+            下拉框选择仓库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseIOFormAppService.GetWareHouseIOFormAsync(KGJ.WareHouse.Dto.WareHouseIOFormInput)">
+            <summary>
+            获取进料单信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseIOFormAppService.CreateOrUpdate(KGJ.WareHouse.Dto.WareHouseIOFormCreateDto)">
+            <summary>
+            新增/编辑
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseIOFormAppService.GetWareHouseInfoDtsAsync(System.String)">
+            <summary>
+            获取明细
+            </summary>
+            <param name="ticketNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseIOFormAppService.UpdateWareHouseIOFormAsync(KGJ.WareHouse.Dto.UpdateWareHouseIOFormInput)">
+            <summary>
+            列表页面删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.WareHouse.WareHouseIOFormAppService.UpdateWareHouseIOFormDtsAsync(KGJ.WareHouse.Dto.UpdateWareHouseIOFormInput)">
+            <summary>
+            详情页面删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
