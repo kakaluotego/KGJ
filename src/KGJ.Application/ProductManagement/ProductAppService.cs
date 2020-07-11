@@ -17,9 +17,11 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
+using Abp.Runtime.Session;
 using KGJ.BaseDto;
 using KGJ.ProductManagement.Dto;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace KGJ.ProductManagement
 {
@@ -40,10 +42,36 @@ namespace KGJ.ProductManagement
             _productAddFieldDataRepository = productAddFieldDataRepository;
         }
 
-        //public async Task<BaseResultDto> CreateProductAsync(CreateProductInput input)
-        //{
+        public async Task<BaseResultDto> CreateProductAsync(CreateProductInput input)
+        {
+            var result = new BaseResultDto();
 
-        //}
+            Product product = JsonConvert.DeserializeObject<Product>(input.Json);
+
+
+
+            result.IsSuccess = true;
+            return result;
+            //var count = _productRepository.GetAll().Where(p => p.ProName == input.ProName).Count();
+            //if (count > 0)
+            //{
+            //    result.IsSuccess = false;
+            //    result.ErrorCode = 250;
+            //    result.ErrorMessage = "重复字段！";
+            //    return result;
+            //}
+
+            //var entityProduct = ObjectMapper.Map<Product>(input);
+            //entityProduct.ProCode = "TTTTTTTTTTTTT";
+            //entityProduct.TenantId = AbpSession.TenantId;
+            //entityProduct.CreatorUserId = AbpSession.GetUserId();
+            //entityProduct.IsValid = true;
+            //await _productRepository.InsertAsync(entityProduct);
+
+            //result.IsSuccess = true;
+            //return result;
+
+        }
 
         //public async Task<BaseResultDto> UpdateProductAsync(UpdateProductInput input)
         //{

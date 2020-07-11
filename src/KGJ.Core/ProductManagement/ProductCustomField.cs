@@ -25,9 +25,9 @@ namespace KGJ.ProductManagement
         [StringLength(50)]
         [Required]
         public string CustomField { get; set; }
-        [StringLength(50)]
-        [Required]
-        public string CustomFieldName { get; set; }
+
+        public bool IsRequired { get; set; }
+
         public int? TenantId { get; set; }
         public bool IsValid { get; set; }
     }

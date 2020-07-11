@@ -4,6 +4,7 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using Abp.Extensions;
 using Abp.IdentityFramework;
 using Abp.Linq.Extensions;
@@ -12,6 +13,7 @@ using Abp.Runtime.Security;
 using KGJ.Authorization;
 using KGJ.Authorization.Roles;
 using KGJ.Authorization.Users;
+using KGJ.BasicManagement;
 using KGJ.Editions;
 using KGJ.MultiTenancy.Dto;
 using Microsoft.AspNetCore.Identity;
@@ -26,6 +28,9 @@ namespace KGJ.MultiTenancy
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IAbpZeroDbMigrator _abpZeroDbMigrator;
+        private readonly IRepository<SystemCode, long> _systemCodeRepository;
+        private readonly IRepository<SystemCodeGroup, long> _systemCodeGroupRepository;
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         public TenantAppService(
             IRepository<Tenant, int> repository,
@@ -33,7 +38,10 @@ namespace KGJ.MultiTenancy
             EditionManager editionManager,
             UserManager userManager,
             RoleManager roleManager,
-            IAbpZeroDbMigrator abpZeroDbMigrator)
+            IAbpZeroDbMigrator abpZeroDbMigrator,
+            IRepository<SystemCode, long> systemCodeRepository,
+            IRepository<SystemCodeGroup, long> systemCodeGroupRepository,
+            IUnitOfWorkManager unitOfWorkManager)
             : base(repository)
         {
             _tenantManager = tenantManager;
@@ -41,6 +49,9 @@ namespace KGJ.MultiTenancy
             _userManager = userManager;
             _roleManager = roleManager;
             _abpZeroDbMigrator = abpZeroDbMigrator;
+            _systemCodeRepository = systemCodeRepository;
+            _systemCodeGroupRepository = systemCodeGroupRepository;
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         [AbpAuthorize(PermissionNames.Pages_Tenants_Create)]
@@ -87,6 +98,10 @@ namespace KGJ.MultiTenancy
                 // Assign admin user to role!
                 CheckErrors(await _userManager.AddToRoleAsync(adminUser, adminRole.Name));
                 await CurrentUnitOfWork.SaveChangesAsync();
+
+                //Copy basic data
+                await CopyBasicData(adminUser);
+                await CurrentUnitOfWork.SaveChangesAsync();
             }
 
             return MapToEntityDto(tenant);
@@ -125,6 +140,31 @@ namespace KGJ.MultiTenancy
         private void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        private async Task CopyBasicData(User adminUser)
+        {
+            using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
+            {
+                var systemCodeGroup = await _systemCodeGroupRepository.GetAllListAsync(p => p.TenantId == null);
+                var systemCode = await _systemCodeRepository.GetAllListAsync(p => p.TenantId == null);
+
+                foreach (var item in systemCodeGroup)
+                {
+                    var temp = systemCode.FindAll(p => p.GroupId == item.Id);
+                    item.TenantId = adminUser.TenantId;
+                    item.CreatorUserId = adminUser.Id;
+                    item.Id = 0;
+                    var groupId = await _systemCodeGroupRepository.InsertAndGetIdAsync(item);
+                    foreach (var code in temp)
+                    {
+                        code.Id = 0;
+                        code.GroupId = groupId;
+                        code.TenantId = adminUser.TenantId;
+                        await _systemCodeRepository.InsertAsync(code);
+                    }
+                }
+            }
         }
     }
 }

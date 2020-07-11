@@ -19,7 +19,7 @@ namespace KGJ.ProductManagement.Dto
     public class UpdateProductCustomFieldInput : EntityDto<long>
     {
         public string CustomField { get; set; }
-        public string CustomFieldName { get; set; }
+        public bool IsRequired { get; set; }
 
     }
 }

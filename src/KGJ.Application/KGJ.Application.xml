@@ -426,85 +426,117 @@
             <param name="organizationUnit"></param>
             <returns></returns>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProAlias">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProAlias">
             <summary>
             产品别名
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProName">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProName">
             <summary>
             产品名称
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProClassification">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProClassification">
             <summary>
             产品分类
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProModel">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProModel">
             <summary>
             型号
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProBrand">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProBrand">
             <summary>
             品牌
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProPackage">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProPackage">
             <summary>
             包装
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProUnit">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProUnit">
             <summary>
             基本单位
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ProDesc">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ProDesc">
             <summary>
             产品描述
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Size">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.Size">
             <summary>
             尺寸
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Weight">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.Weight">
             <summary>
             重量
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.Acreage">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.Acreage">
             <summary>
             面积(m²)
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.MinNum">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.MinNum">
             <summary>
             最小领用量
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ChargeStandard">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ChargeStandard">
             <summary>
             收费标准
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.ChargeAmount">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.ChargeAmount">
             <summary>
             收费金额
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.IsMultiUnit">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.IsMultiUnit">
             <summary>
             是否多单位
             </summary>
         </member>
-        <member name="P:KGJ.ProductManagement.Dto.CreateProductInput.IsGenerateQR">
+        <member name="P:KGJ.ProductManagement.Dto.ProductDto.IsGenerateQR">
             <summary>
             产生二维码
             </summary>
+        </member>
+        <member name="T:KGJ.ProductManagement.ProductCustomFieldAppService">
+            <summary>
+            产品自定义字段
+            </summary>
+        </member>
+        <member name="M:KGJ.ProductManagement.ProductCustomFieldAppService.CreateProductCustomFieldAsync(KGJ.ProductManagement.Dto.CreateProductCustomFieldInput)">
+            <summary>
+            创建
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.ProductManagement.ProductCustomFieldAppService.UpdateProductCustomFieldAsync(KGJ.ProductManagement.Dto.UpdateProductCustomFieldInput)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.ProductManagement.ProductCustomFieldAppService.UpdateProductCustomFieldIsValidAsync(KGJ.BaseDto.IsValidInput)">
+            <summary>
+            删除（使无效）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KGJ.ProductManagement.ProductCustomFieldAppService.GetCustomFieldAsync">
+            <summary>
+            产品页面增加的字段
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:KGJ.Users.UserAppService.GetUserOrganizationUnitsAsync(System.Int64)">
             <summary>

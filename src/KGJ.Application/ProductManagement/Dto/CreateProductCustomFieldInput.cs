@@ -20,6 +20,6 @@ namespace KGJ.ProductManagement.Dto
     public class CreateProductCustomFieldInput
     {
         public string CustomField { get; set; }
-        public string CustomFieldName { get; set; }
+        public bool IsRequired { get; set; }
     }
 }

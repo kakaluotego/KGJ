@@ -19,10 +19,6 @@ namespace KGJ.EntityFrameworkCore.Repositories
         {
         }
         // Add your common methods for all repositories
-        public async Task DeleteToUpdateAsync(TEntity entity)
-        {
-             await base.UpdateAsync(entity);
-        }
 
 
     }

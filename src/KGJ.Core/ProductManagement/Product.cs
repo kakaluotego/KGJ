@@ -61,5 +61,6 @@ namespace KGJ.ProductManagement
         public bool IsMultiUnit { get; set; }
         public bool IsGenerateQR { get; set; }
         public int? TenantId { get; set; }
+        public bool IsValid { get; set; }
     }
 }

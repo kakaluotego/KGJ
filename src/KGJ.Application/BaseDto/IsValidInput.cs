@@ -21,6 +21,5 @@ namespace KGJ.BaseDto
 
         public bool IsValid { get; set; }
 
-        public long UserId { get; set; }
     }
 }
