@@ -15,6 +15,9 @@ using System.Linq;
 
 namespace KGJ.BaseDto
 {
+
+
+
     public class IsValidInput
     {
         public long Id { get; set; }
