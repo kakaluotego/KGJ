@@ -7,6 +7,7 @@
  *  
  * 当前版本：1.0
  * 作   者：Kakaluote
+ * kakaluotego
  */
 
 using System;
